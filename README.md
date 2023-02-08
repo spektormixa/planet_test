@@ -11,7 +11,7 @@
 2. Installing all the dependencies:
 
     ```shell
-    cd path/to/selenium_python_tests
+    cd path/to/tests
     pip install -r requirements.txt
     ```
 
