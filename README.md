@@ -36,17 +36,17 @@
     ```
 
 
-Usage
-=
-
+### Usage
+```shell
  - cd properties
  - add your username, password and base URL to the configuration file
  - cd tests
  - pytest
+ ```
 
 
-Environment
-=
+### Environment
+
 - Python 3.9.6
 - ChromeDriver 109.0.5414.74
 - Selenium WebDriver version 4.8.0
