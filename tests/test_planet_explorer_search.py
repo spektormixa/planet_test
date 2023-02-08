@@ -43,18 +43,18 @@ class TestPlanet(Base):
         # ----------------------Steps--------------------------------------
 
         # Input search location and click enter
-        # TODO: Defect-ID:  PE-4 (see attached .pdf)
+        # TODO: DEFECT-ID:  PE-4 (see attached .pdf)
         home.search_location(search_request)
         log.info("Entered Search Request")
 
-        # DEFECT-ID: PE-2 - Update assertion to check order scenes and cadence after DE is fixed.(see attached PDF)
+        # TODO: DEFECT-ID: PE-2 - Update assertion to check order scenes once DE is fixed.(see attached PDF)
         error = daily_scenes.get_error_title()
         check.not_equal(error, "Sorry, no results found",
                         msg=f"Daily catalog is not loaded, got an error: {error}")
 
         # Save Search
         daily_scenes.click_save_update_search()
-        daily_scenes.save_search_result(rename_search)
+        saved_searches.save_search_result(rename_search)
         log.info("Saved Search Results")
 
         # Verify that search result was saved
@@ -73,7 +73,7 @@ class TestPlanet(Base):
 
         daily_scenes.click_save_update_search()
 
-        daily_scenes.save_search_result(updated_search)
+        saved_searches.save_search_result(updated_search)
 
         # Verify the updated search card after the update.
         home.toggle_saved_searches()
@@ -83,7 +83,7 @@ class TestPlanet(Base):
         assert updated_title == updated_search
         log.info("Saved Search is Updated")
 
-    def test_saved_search_already_exist(self):
+    def test_saved_search_name_is_empty_and_already_exist(self):
         """Test - Save search results with existing name"""
         daily_scenes = DailyScenes(self.driver)
         saved_searches = SavedSearches(self.driver)
@@ -91,7 +91,14 @@ class TestPlanet(Base):
         # ----------------------Steps--------------------------------------
         saved_searches.click_saved_search()
         daily_scenes.click_save_update_search()
-        daily_scenes.save_search_result(updated_search, save_as_new=True)
+
+        # Name field is empty
+        no_name_expected_msg = "You must give your search a name"
+        actual_no_name_error = saved_searches.get_empty_name_field_error_message()
+        assert actual_no_name_error == no_name_expected_msg
+
+        # Selected name already exist error
+        saved_searches.save_search_result(updated_search, save_as_new=True)
 
         expected_msg = "A saved search already exists with that name"
         error_msg = saved_searches.get_search_already_exist_message()

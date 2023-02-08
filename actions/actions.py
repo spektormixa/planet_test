@@ -20,19 +20,19 @@ class Actions:
         el.click()
 
     def fill_text(self, element, txt):
-        el = self._wait.until(expected_conditions.visibility_of_element_located(element))
+        el = self._wait.until(expected_conditions.presence_of_element_located(element))
         el.clear()
         el.send_keys(txt)
 
     def click_enter_key(self, element):
-        el = self._wait.until(expected_conditions.visibility_of_element_located(element))
+        el = self._wait.until(expected_conditions.presence_of_element_located(element))
         el.send_keys(Keys.ENTER)
 
     def get_inner_text(self, element):
         el = self._wait.until(expected_conditions.element_to_be_clickable(element)).get_attribute('innerText')
         return el
 
-    # TODO: Find out why  clear is not working by clear() function.
+    # TODO: Find out why clear is not working by clear() function.
     def clear_text(self, element):
         el = self._wait.until(expected_conditions.element_to_be_clickable(element))
         time.sleep(1)
