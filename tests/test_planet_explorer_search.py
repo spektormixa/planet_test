@@ -7,7 +7,6 @@ from pages.saved_searches import SavedSearches
 from utilities.base import Base
 import pytest_check as check
 
-
 search_request = 'San Francisco, CA'
 rename_search = "San Francisco_renamed_test_" + ''.join(random.choices(string.ascii_lowercase, k=5))
 updated_search = "San Francisco_updated_test_" + ''.join(random.choices(string.ascii_lowercase, k=5))
@@ -34,9 +33,9 @@ class TestPlanet(Base):
                 continue
         cls.driver.close()
 
-    def test_search_planet(self):
+    def test_search_and_update_planet_express(self):
         """Test - Search and Update search result."""
-        log = self.getLogger()
+        log = self.get_logger()
         home = HomePage(self.driver)
         daily_scenes = DailyScenes(self.driver)
         saved_searches = SavedSearches(self.driver)
@@ -44,12 +43,11 @@ class TestPlanet(Base):
         # ----------------------Steps--------------------------------------
 
         # Input search location and click enter
-        # TODO: Potential Defect: entered name overrides with San Francisco
-        log.info("Entered Search Request")
+        # TODO: Defect-ID:  PE-4 (see attached .pdf)
         home.search_location(search_request)
+        log.info("Entered Search Request")
 
-        # TODO : Defect, cadence (daily, weekly, monthly, quarterly) not available. (Add an assertion when fixed)
-        # TODO: Defect, Daily catalog should return order scenes. (add an assertion of the catalog elements)
+        # DEFECT-ID: PE-2 - Update assertion to check order scenes and cadence after DE is fixed.(see attached PDF)
         error = daily_scenes.get_error_title()
         check.not_equal(error, "Sorry, no results found",
                         msg=f"Daily catalog is not loaded, got an error: {error}")
@@ -60,6 +58,7 @@ class TestPlanet(Base):
         log.info("Saved Search Results")
 
         # Verify that search result was saved
+        # TODO: DEFECT-ID: PE-1 - Remove workaround for this DE from the method below when fixed.(see attached PDF)
         home.toggle_saved_searches()
 
         # Filter Saved Searches
@@ -82,6 +81,7 @@ class TestPlanet(Base):
         saved_searches.filter_saved_searches(updated_search)
         updated_title = saved_searches.get_search_title()
         assert updated_title == updated_search
+        log.info("Saved Search is Updated")
 
     def test_saved_search_already_exist(self):
         """Test - Save search results with existing name"""

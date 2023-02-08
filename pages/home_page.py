@@ -31,9 +31,10 @@ class HomePage(Actions):
         except NoSuchElementException:
             pass
 
-    # TODO: Remove code in try except block when Defect is fixed.
+    # TODO: Remove code in try except block when DEFECT-ID: PE-1 is fixed.
     def toggle_saved_searches(self):
         self.click(self.SAVED_SEARCH_ICON)
+        # Workaround for DEFECT-ID: PE-1
         try:
             reload_btn = WebDriverWait(self.driver, 2).until(
                 EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Reload')]"))
