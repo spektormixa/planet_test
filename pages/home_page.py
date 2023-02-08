@@ -31,7 +31,7 @@ class HomePage(Actions):
         except NoSuchElementException:
             pass
 
-    # TODO: Remove code in try ecept block when Defect is fixed.
+    # TODO: Remove code in try except block when Defect is fixed.
     def toggle_saved_searches(self):
         self.click(self.SAVED_SEARCH_ICON)
         try:

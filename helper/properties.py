@@ -1,6 +1,6 @@
 def get_settings():
     return {
-        "DEFAULT-BASE-URL": "http://www.planet.com/explorer",
+        "DEFAULT-BASE-URL": "",
 
         "USER-LOGIN": "",
         "USER-PASSWORD": "",

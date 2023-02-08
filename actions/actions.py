@@ -1,4 +1,3 @@
-from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions
@@ -42,4 +41,3 @@ class Actions:
 
     def refresh_page(self):
         self.driver.refresh()
-

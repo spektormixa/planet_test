@@ -21,9 +21,9 @@ Install
 
 Usage
 =====
- - git clone
+ - extract to your downloads folder or any other folder
  - cd properties
- - add your username and password to configuration file
+ - add your username and password to configuration file if needed.
  - cd tests
  - pytest
 
