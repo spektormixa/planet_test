@@ -21,7 +21,7 @@ Install
 
 Usage
 =====
- - extract to your downloads folder or any other folder
+ - clone https://github.com/spektormixa/planet_test
  - cd properties
  - add your username and password to configuration file if needed.
  - cd tests
