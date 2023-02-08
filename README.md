@@ -8,7 +8,12 @@
     git clone https://github.com/spektormixa/planet_test.git
     ```
 
-2. Installing all the dependencies:
+## Setup work environment using IDE PyCharm
+* clone the code
+* open with Pycharm
+* venv and dependencies will automatically setup and installed with notified pop-ups
+
+2. Optional: Installing all the dependencies all at once:
 
     ```shell
     cd path/to/tests
