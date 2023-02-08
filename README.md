@@ -1,4 +1,4 @@
-## Autotests and framework for 'Save Search' and 'Update Search' feature of Planet Explorer.
+### Autotests and framework for 'Save Search' and 'Update Search' feature of the Planet Explorer.
 
 ### Setup
 
