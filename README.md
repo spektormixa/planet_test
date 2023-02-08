@@ -13,6 +13,7 @@
 * open with Pycharm
 * venv and dependencies will automatically setup and installed with notified pop-ups
 
+
 2. Optional: Installing all the dependencies all at once:
 
     ```shell
