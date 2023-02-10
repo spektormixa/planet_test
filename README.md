@@ -44,8 +44,8 @@
 
 ### Usage
 ```shell
- - cd properties
- - add your username, password and base URL to the configuration file
+ - cd helper
+ - add your username, password and base URL to the properties.py configuration file
  - cd tests
  - pytest
  ```
